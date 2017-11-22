@@ -1,5 +1,6 @@
 # IdleNuts
 
 - Clone repo
-- run `sudo npm install -g gulp-cli`
-- then run `npm i`
+- Install Gulp CLI with `sudo npm install -g gulp-cli`
+- Install deps with `npm i`
+- then run with `gulp`
