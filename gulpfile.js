@@ -1,5 +1,6 @@
 var browserify = require('browserify'),
     gulp = require('gulp'),
+    plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -20,6 +21,7 @@ gulp.task('js', function () {
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
         .pipe(source('bundle.js'))
+        .pipe(plumber())
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sourcemaps.write())

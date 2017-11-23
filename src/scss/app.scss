@@ -4,6 +4,7 @@ https://picturepan2.github.io/spectre/
 */
 @import "spectre.css/src/spectre";
 @import "spectre.css/src/spectre-icons";
+@import "./animations";
 
 /*
 Google fonts
@@ -13,6 +14,7 @@ Google fonts
 body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+    background: #EEF;
 
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Lora', serif;
