@@ -21,7 +21,7 @@ class Wallet {
     return this.balance - num > 0
   }
   buy(num) {
-    if (this.balance - num > 0) {
+    if (this.balance - num >= 0) {
       this.remove(num);
       return true;
     }
