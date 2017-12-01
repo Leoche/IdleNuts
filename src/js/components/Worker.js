@@ -6,14 +6,17 @@ class Worker {
     this.wallet = wallet;
     this.ratio = 1;
     this.upgradeRatio = 1.1;
-    this.base = 1
+    this.base = 0
     this.upgradeCost = 1;
     this.upgradeCostIncrease = 1;
     this.lvl = 0;
+    this.stock = 0;
+    this.stock = 0;
     this.button = document.querySelector(buttonId);
     this.lvlDisplay = document.querySelector(lvlDisplayId);
     this.prodDisplay = document.querySelector(prodDisplayId);
     this.initGUI();
+    this.render()
     /**
           ratio = %age
           number => rez = multicatif
@@ -28,6 +31,8 @@ class Worker {
   }
   initGUI() {
     this.button.addEventListener('click', (evt) => {
+      console.log(this.upgradeCost)
+      console.log('this.wallet', this.wallet.balance);
       if (this.wallet.buy(this.upgradeCost)) {
         this.upgrade();
       }
@@ -36,12 +41,22 @@ class Worker {
   upgrade() {
     this.ratio *= this.upgradeRatio;
     this.upgradeCost += this.upgradeCostIncrease;
+    this.upgradeCost = Math.floor(this.upgradeCost);
     this.upgradeCostIncrease *= this.upgradeRatio;
     this.lvl++;
     this.render();
   }
   produce() {
     this.wallet.add();
+  }
+  update(msPerTick) {
+    if (this.calculateTotalProduction() <= 0) return;
+
+    this.stock += this.calculateTotalProduction() / 1000 * msPerTick
+    if (this.stock > 1) {
+      this.wallet.add(Math.floor(this.stock))
+      this.stock = this.stock - Math.floor(this.stock)
+    }
   }
   calculateTotalProduction() {
     return this.base * this.ratio;
@@ -52,7 +67,7 @@ class Worker {
   }
   render() {
     this.lvlDisplay.innerHTML = this.lvl;
-    this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction());
+    this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction()) + "/sec (debug:" + this.stock + " Nuts in stock)";
     this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.getOneDecimal(this.upgradeCost));
   }
 }
