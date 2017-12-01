@@ -51,7 +51,6 @@ class Worker {
     return Math.round(num * 10) / 10;
   }
   render() {
-    console.log(this.button);
     this.lvlDisplay.innerHTML = this.lvl;
     this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction());
     this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.getOneDecimal(this.upgradeCost));
