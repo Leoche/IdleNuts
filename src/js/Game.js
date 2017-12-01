@@ -15,7 +15,7 @@ class Game {
   init() {
     let nutsWallet = new Wallet("nuts", 0, ".nuts-count")
     let nutsTree = new Tree(nutsWallet, "#tree-btn", "#pick-btn", "#tree-svg")
-    let nutsWorker = new Worker(nutsWallet, "#squirrel-btn", "#lvlDisplay", "#prodDisplay")
+    let nutsWorker = new Worker(60, 1.15, 20, nutsWallet, "#squirrel-btn", "#lvlDisplay", "#prodDisplay")
 
     this.modules.statics.push(nutsWallet, nutsTree)
     this.modules.dynamics.push(nutsWorker)
