@@ -22,4 +22,21 @@ body {
         font-family: 'Lora', serif;
         font-weight: 700;
     }
+
+    #tree-container {
+      position: relative;
+
+      .tree-notification {
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        padding:0 10px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: $light-color;
+        background-color: $primary-color;
+        border-radius: 30px;
+      }
+    }
 }
