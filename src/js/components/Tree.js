@@ -16,6 +16,11 @@ class Tree {
       evt.stopPropagation()
       this.pick()
     })
+    document.querySelector("#debug10")
+      .addEventListener('click', (evt) => { //debug to remove
+        evt.stopPropagation()
+        this.pickTen()
+      })
     this.graphic.addEventListener('webkitAnimationEnd', (evt) => {
       this.graphic.style.webkitAnimationName = ''
       if (evt.animationName != "shake") return;
@@ -32,6 +37,12 @@ class Tree {
     this.graphic.style.webkitAnimationName = 'minishake';
     this.graphic.style.webkitAnimationDuration = '.1s';
     this.addPop(1);
+  }
+  pickTen() { //debug to remove
+    this.wallet.add(10)
+    this.graphic.style.webkitAnimationName = 'minishake';
+    this.graphic.style.webkitAnimationDuration = '.1s';
+    this.addPop(10);
   }
   result() {
     let gain = 1 + Math.ceil(Math.random() * 5)
