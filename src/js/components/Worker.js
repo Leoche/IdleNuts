@@ -11,7 +11,6 @@ class Worker {
     this.upgradeCostIncrease = 1;
     this.lvl = 0;
     this.stock = 0;
-    this.stock = 0;
     this.button = document.querySelector(buttonId);
     this.lvlDisplay = document.querySelector(lvlDisplayId);
     this.prodDisplay = document.querySelector(prodDisplayId);
@@ -39,18 +38,17 @@ class Worker {
     })
   }
   upgrade() {
-    this.ratio *= this.upgradeRatio;
+    
     this.upgradeCost += this.upgradeCostIncrease;
     this.upgradeCost = Math.floor(this.upgradeCost);
     this.upgradeCostIncrease *= this.upgradeRatio;
     this.lvl++;
     this.render();
   }
-  produce() {
-    this.wallet.add();
-  }
+
   update(msPerTick) {
     if (this.calculateTotalProduction() <= 0) return;
+    console.log(this.calculateTotalProduction() / 1000 * msPerTick);
     /*
      this.calculateTotalProduction() / 1000 * msPerTick = nuts/sec converti en nuts/30ms
     */
@@ -62,7 +60,8 @@ class Worker {
     this.render() /* pour le debug su stock (voir ligne 73)*/
   }
   calculateTotalProduction() {
-    return this.base * this.ratio;
+    return this.lvl * this.ratio;
+
   }
   getOneDecimal(num) {
     // return x.x de la valeur
