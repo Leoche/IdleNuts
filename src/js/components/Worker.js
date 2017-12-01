@@ -59,6 +59,7 @@ class Worker {
       this.wallet.add(Math.floor(this.stock))
       this.stock = this.stock - Math.floor(this.stock)
     }
+    this.render() /* pour le debug su stock (voir ligne 73)*/
   }
   calculateTotalProduction() {
     return this.base * this.ratio;
@@ -69,7 +70,7 @@ class Worker {
   }
   render() {
     this.lvlDisplay.innerHTML = this.lvl;
-    this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction()) + "/sec (debug:" + this.stock + " Nuts in stock)";
+    this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction()) + "/sec (debug:" + this.getOneDecimal(this.stock) + " Nuts in stock)";
     this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.getOneDecimal(this.upgradeCost));
   }
 }
