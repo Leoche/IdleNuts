@@ -2,13 +2,12 @@ class Worker {
   // instancie un worker. il travaille sur un wallet,
   //possède un tableau de boutons d'upgrade et un objet de conf permettant de savoir quel bouton augmente quelle upgrade.
   // il est également envisagé de décrire les couts avec des wallets. ceci entrainerait bcp de complexité dans la conf
-  constructor(wallet, buttonId, lvlDisplayId, prodDisplayId) {
+  constructor(wallet, buttonId, lvlDisplayId, prodDisplayId,conf) {
     this.wallet = wallet;
-    this.ratio = 1;
-    this.upgradeRatio = 1.1;
-    this.base = 0
-    this.upgradeCost = 1;
-    this.upgradeCostIncrease = 1;
+    this.ratio = conf["ratio"];
+    this.upgradeRatio = conf["upgradeRatio"];
+    this.upgradeCost = conf["upgradeCost"];
+    this.upgradeCostIncrease = conf["upgradeCostIncrease"];
     this.lvl = 0;
     this.stock = 0;
     this.button = document.querySelector(buttonId);
@@ -40,7 +39,7 @@ class Worker {
   upgrade() {
     
     this.upgradeCost += this.upgradeCostIncrease;
-    this.upgradeCost = Math.floor(this.upgradeCost);
+    this.upgradeCost = Math.floor(this.upgradeCost);  
     this.upgradeCostIncrease *= this.upgradeRatio;
     this.lvl++;
     this.render();
