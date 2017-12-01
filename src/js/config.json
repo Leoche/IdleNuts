@@ -1,0 +1,15 @@
+{
+		"workerConf":{
+			"ratio" :1,
+			"upgradeRatio" : 1.1,
+			"upgradeCost" : 1,
+			"upgradeCostIncrease":1
+		},
+		"ninjaConf":{
+			"ratio" :10.1,
+			"upgradeRatio" : 1.15,
+			"upgradeCost" : 100,
+			"upgradeCostIncrease":1
+		}
+
+}
