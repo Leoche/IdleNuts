@@ -1,38 +1,60 @@
 .shake-anim {
-    animation-duration: 1s;
-    transform-origin: center 170px;
+  transform-origin: center 170px;
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: rotate(1deg);
+  }
+
+  20%,
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(-4deg);
+  }
+
+  40%,
+  60% {
+    transform: rotate(4deg);
+  }
 }
 
-@keyframes shake {
-    10%, 90% {
-        transform: rotate(1deg);
-    }
+.minishake-anim {
+  animation-duration: .2s;
+  transform-origin: center 170px;
+}
+@keyframes minishake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
 
-    20%, 80% {
-        transform: rotate(-2deg);
-    }
-
-    30%, 50%, 70% {
-        transform: rotate(-4deg);
-    }
-
-    40%, 60% {
-        transform: rotate(4deg);
-    }
+  50% {
+    transform: rotate(-2deg);
+  }
 }
 
 .notification-anim {
-    animation:notification 2s;
+  animation: notification 2s;
 }
-
 @keyframes notification {
-    0% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
+  0% {
+    transform: scale(0) translateY(0px);
+    opacity: 1;
+  }
 
-    100% {
-      transform: translateY(-100px);
-      opacity: 0;
-    }
+  20% {
+    transform: scale(1) translateY(-20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(-100px);
+    opacity: 0;
+  }
 }

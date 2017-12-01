@@ -18,15 +18,19 @@ class Tree {
     })
     this.graphic.addEventListener('webkitAnimationEnd', (evt) => {
       this.graphic.style.webkitAnimationName = ''
+      if (evt.animationName != "shake") return;
       this.result()
     }, false)
   }
   shake() {
     this.disableShakeButton()
     this.graphic.style.webkitAnimationName = 'shake';
+    this.graphic.style.webkitAnimationDuration = '1s';
   }
   pick() {
     this.wallet.add(1)
+    this.graphic.style.webkitAnimationName = 'minishake';
+    this.graphic.style.webkitAnimationDuration = '.1s';
     this.addPop(1);
   }
   result() {
