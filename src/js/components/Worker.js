@@ -51,7 +51,9 @@ class Worker {
   }
   update(msPerTick) {
     if (this.calculateTotalProduction() <= 0) return;
-
+    /*
+     this.calculateTotalProduction() / 1000 * msPerTick = nuts/sec converti en nuts/30ms
+    */
     this.stock += this.calculateTotalProduction() / 1000 * msPerTick
     if (this.stock > 1) {
       this.wallet.add(Math.floor(this.stock))
