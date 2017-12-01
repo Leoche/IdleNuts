@@ -24,7 +24,7 @@ class Wallet {
   }
   render() {
     this.counters.forEach((item) => {
-      item.innerHTML = this.balance
+      item.innerHTML = Math.floor(this.balance)
     });
   }
 }

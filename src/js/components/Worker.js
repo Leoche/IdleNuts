@@ -46,11 +46,15 @@ class Worker {
   calculateTotalProduction() {
     return this.base * this.ratio;
   }
+  getOneDecimal(num) {
+    // return x.x de la valeur
+    return Math.round(num * 10) / 10;
+  }
   render() {
     console.log(this.button);
     this.lvlDisplay.innerHTML = this.lvl;
-    this.prodDisplay.innerHTML = this.calculateTotalProduction();
-    this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.upgradeCost);
+    this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction());
+    this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.getOneDecimal(this.upgradeCost));
   }
 }
 export default Worker
