@@ -1,6 +1,8 @@
 class Tree {
-  constructor(wallet, actionShakeId, actionPickId, graphicId) {
-    this.wallet = wallet
+  constructor(walletManager, currency, actionShakeId, actionPickId, graphicId) {
+    this.walletManager = walletManager;
+    console.log(walletManager)
+    this.currency = currency;
     this.cooldown = 1500
     this.shakeButton = document.querySelector(actionShakeId)
     this.pickButton = document.querySelector(actionPickId)
@@ -33,23 +35,23 @@ class Tree {
     this.graphic.style.webkitAnimationDuration = '1s';
   }
   pick() {
-    this.wallet.add(1)
+    this.walletManager.add(1, this.currency)
     this.graphic.style.webkitAnimationName = 'minishake';
     this.graphic.style.webkitAnimationDuration = '.1s';
     this.addPop(1);
   }
   pickTen() { //debug to remove
-    this.wallet.add(10)
+    this.walletManager.add(10, this.currency)
     this.graphic.style.webkitAnimationName = 'minishake';
     this.graphic.style.webkitAnimationDuration = '.1s';
     this.addPop(10);
   }
   result() {
     let gain = 3 + Math.ceil(Math.random() * 10)
-    this.wallet.add(gain)
+    this.walletManager.add(gain, this.currency)
     this.addPop(gain);
     let oldLabel = this.shakeButton.innerHTML;
-    this.shakeButton.innerHTML = "+" + gain + " " + this.wallet.name
+    this.shakeButton.innerHTML = "+" + gain + " " + this.currency
     setTimeout(() => {
       this.shakeButton.innerHTML = oldLabel
       this.enableButtons()

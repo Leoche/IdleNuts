@@ -1,18 +1,10 @@
 class Wallet {
-  constructor(name, defaultBalance, countId) {
+  constructor(name, defaultBalance) {
     this.name = name
     this.balance = defaultBalance
-    this.counter = document.querySelector(countId)
-    this.render()
-
-    this.counter.addEventListener('webkitAnimationEnd', (evt) => {
-      this.counter.style.webkitAnimationName = ''
-    }, false)
   }
   add(num) {
     this.balance += num
-    this.pop();
-    this.render()
   }
   remove(num) {
     this.add(num * -1)
@@ -26,13 +18,6 @@ class Wallet {
       return true;
     }
     return false;
-  }
-  pop() {
-    this.counter.style.webkitAnimationName = 'pop';
-    this.counter.style.webkitAnimationDuration = '.1s';
-  }
-  render() {
-    this.counter.innerHTML = Math.floor(this.balance)
   }
 }
 export default Wallet

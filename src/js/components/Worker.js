@@ -2,8 +2,9 @@ class Worker {
   // instancie un worker. il travaille sur un wallet,
   //possède un tableau de boutons d'upgrade et un objet de conf permettant de savoir quel bouton augmente quelle upgrade.
   // il est également envisagé de décrire les couts avec des wallets. ceci entrainerait bcp de complexité dans la conf
-  constructor(conf, wallet, buttonId, lvlDisplayId, prodDisplayId) {
-    this.wallet = wallet;
+  constructor(conf, walletManager, currency, buttonId, lvlDisplayId, prodDisplayId) {
+    this.currency = currency;
+    this.walletManager = walletManager;
     this.exponent = conf.exponent;
     this.baseIncome = conf.baseIncome;
     this.baseCost = conf.baseCost;
@@ -31,7 +32,7 @@ class Worker {
   }
   initGUI() {
     this.button.addEventListener('click', (evt) => {
-      if (this.wallet.buy(this.upgradeCostFloored(1))) {
+      if (this.walletManager.buy(this.upgradeCostFloored(1), this.currency)) {
         this.upgrade();
       }
     })
@@ -55,7 +56,7 @@ class Worker {
     */
     this.stock += this.calculateTotalProduction() / 1000 * msPerTick
     if (this.stock > 1) {
-      this.wallet.add(Math.floor(this.stock))
+      this.walletManager.add(Math.floor(this.stock), this.currency)
       this.stock = this.stock - Math.floor(this.stock)
     }
   }

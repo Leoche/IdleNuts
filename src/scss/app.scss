@@ -37,6 +37,10 @@ body {
         margin: 0 -0.4rem;
         padding: 0.2rem 0.4rem;
         text-decoration: none;
+
+        &:first-letter {
+            text-transform: capitalize;
+        }
     }
 
     #tree-container {
