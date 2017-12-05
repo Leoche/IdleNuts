@@ -1,15 +1,17 @@
 {
-		"workerConf":{
-			"ratio" :1,
-			"upgradeRatio" : 1.1,
-			"upgradeCost" : 1,
-			"upgradeCostIncrease":1
+	"workers":
+	{
+		"squirrel":
+		{
+			"exponent":1.15,
+			"baseCost":60,
+			"baseIncome":20
 		},
-		"ninjaConf":{
-			"ratio" :10.1,
-			"upgradeRatio" : 1.15,
-			"upgradeCost" : 100,
-			"upgradeCostIncrease":1
+		"ninjaSquirrel":
+		{
+			"exponent":1.15,
+			"baseCost":600,
+			"baseIncome":20
 		}
-
+	}
 }
