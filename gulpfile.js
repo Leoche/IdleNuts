@@ -13,6 +13,7 @@ var entryPoint = './src/js/app.js',
     browserDir = './',
     sassWatchPath = './src/scss/**/*.scss',
     jsWatchPath = './src/js/**/*.js',
+    jsonWatchPath = './src/js/**/*.json',
     htmlWatchPath = './*.html';
 /**/
 
@@ -53,6 +54,7 @@ gulp.task('sass', function () {
 
 gulp.task('watch', function () {
     gulp.watch(jsWatchPath, ['js']);
+    gulp.watch(jsonWatchPath, ['js']);
     gulp.watch(sassWatchPath, ['sass']);
     gulp.watch(htmlWatchPath, function () {
         return gulp.src('')
