@@ -28,7 +28,7 @@ class Tree {
     }, false)
   }
   shake() {
-    this.disableShakeButton()
+    this.disableButtons()
     this.graphic.style.webkitAnimationName = 'shake';
     this.graphic.style.webkitAnimationDuration = '1s';
   }
@@ -45,21 +45,23 @@ class Tree {
     this.addPop(10);
   }
   result() {
-    let gain = 1 + Math.ceil(Math.random() * 5)
+    let gain = 3 + Math.ceil(Math.random() * 10)
     this.wallet.add(gain)
     this.addPop(gain);
     let oldLabel = this.shakeButton.innerHTML;
     this.shakeButton.innerHTML = "+" + gain + " " + this.wallet.name
     setTimeout(() => {
       this.shakeButton.innerHTML = oldLabel
-      this.enableShakeButton()
+      this.enableButtons()
     }, this.cooldown)
   }
-  disableShakeButton() {
+  disableButtons() {
     this.shakeButton.disabled = true;
+    this.pickButton.disabled = true;
   }
-  enableShakeButton() {
+  enableButtons() {
     this.shakeButton.disabled = false;
+    this.pickButton.disabled = false;
   }
   addPop(num) {
     var el = document.createElement('span');
