@@ -3,12 +3,14 @@
 	{
 		"squirrel":
 		{
+			"currency":"nuts",
 			"exponent":1.15,
 			"baseCost":60,
 			"baseIncome":4
 		},
 		"ninjaSquirrel":
 		{
+			"currency":"nuts",
 			"exponent":1.15,
 			"baseCost":600,
 			"baseIncome":20

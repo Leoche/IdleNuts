@@ -20,8 +20,8 @@ class Game {
   init() {
     let nutsTree = new Tree(this.walletManager, "nuts", "#tree-btn", "#pick-btn", "#tree-svg")
 
-    let squirrel = new Worker(this.config.workers.squirrel, this.walletManager, "nuts", "#squirrel-btn", "#lvl-display", "#prod-display")
-    let ninjaSquirrel = new Worker(this.config.workers.ninjaSquirrel, this.walletManager, "nuts", "#squirrel-btn-ninja", "#lvl-display-ninja", "#prod-display-ninja")
+    let squirrel = new Worker(this.config.workers.squirrel, this.walletManager, "#squirrel-btn", "#lvl-display", "#prod-display")
+    let ninjaSquirrel = new Worker(this.config.workers.ninjaSquirrel, this.walletManager, "#squirrel-btn-ninja", "#lvl-display-ninja", "#prod-display-ninja")
 
 
     this.modules.statics.push(nutsTree)

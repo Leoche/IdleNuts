@@ -2,8 +2,8 @@ class Worker {
   // instancie un worker. il travaille sur un wallet,
   //possède un tableau de boutons d'upgrade et un objet de conf permettant de savoir quel bouton augmente quelle upgrade.
   // il est également envisagé de décrire les couts avec des wallets. ceci entrainerait bcp de complexité dans la conf
-  constructor(conf, walletManager, currency, buttonId, lvlDisplayId, prodDisplayId) {
-    this.currency = currency;
+  constructor(conf, walletManager, buttonId, lvlDisplayId, prodDisplayId) {
+    this.currency = conf.currency;
     this.walletManager = walletManager;
     this.exponent = conf.exponent;
     this.baseIncome = conf.baseIncome;
