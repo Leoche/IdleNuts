@@ -19,5 +19,19 @@ class Wallet {
     }
     return false;
   }
+  pop() {
+    this.counter.style.webkitAnimationName = 'pop';
+    this.counter.style.webkitAnimationDuration = '.1s';
+  }
+  render() {
+    this.counter.innerHTML = Math.floor(this.balance)
+  }
+  save(){
+    return {
+      name:this.name,
+      balance:this.balance
+    }
+  }
 }
 export default Wallet
+  

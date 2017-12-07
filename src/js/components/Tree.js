@@ -79,5 +79,8 @@ class Tree {
 
     this.graphic.parentNode.appendChild(el)
   }
+  save(){
+    
+  }
 }
 export default Tree

@@ -18,17 +18,6 @@ class Worker {
 
     this.initGUI();
     this.render()
-    /**
-          ratio = %age
-          number => rez = multicatif
-    	    gatherSpeed =
-
-          afkRatio [0,1]
-
-          TODO plusieurs bouton
-          differents wallets différents pour le cout des upgrades
-          un fichier de conf qui permets de mettre des valeurs par défaut ???
-    **/
   }
   initGUI() {
     this.button.addEventListener('click', (evt) => {
@@ -71,6 +60,12 @@ class Worker {
     this.lvlDisplay.innerHTML = this.lvl;
     this.prodDisplay.innerHTML = this.getOneDecimal(this.calculateTotalProduction()) + "/sec";
     this.button.innerHTML = this.button.attributes["data-text"].value.replace("$", "-" + this.upgradeCostFloored(1));
+  }
+  save(){
+    return {
+      lvl : this.lvl,
+      stock : this.stock
+    }
   }
 }
 export default Worker

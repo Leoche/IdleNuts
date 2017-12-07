@@ -26,6 +26,7 @@ class Game {
 
     this.modules.statics.push(nutsTree)
     this.modules.dynamics.push(squirrel,ninjaSquirrel)
+    this.save();
 
   }
   update() {
@@ -35,6 +36,24 @@ class Game {
   }
   run() {
     this.update()
+  }
+  save(){
+    let a = {
+      statics:[],
+      dynamics:[],
+      time:Date.now()
+
+    }
+    this.modules.statics.forEach(function(element){
+      a.statics.push(element.save());
+    })
+    this.modules.dynamics.forEach(function(element){
+      a.dynamics.push(element.save());
+    })
+    document.cookie = "username="+JSON.stringify(a)+"; expires=Thu, 18 Dec 2037 12:00:00 UTC"; 
+
+
+
   }
 }
 export default Game
