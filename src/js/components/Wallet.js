@@ -34,5 +34,11 @@ class Wallet {
   render() {
     this.counter.innerHTML = Math.floor(this.balance)
   }
+  save(){
+    return {
+      name:this.name,
+      balance:this.balance
+    }
+  }
 }
 export default Wallet
